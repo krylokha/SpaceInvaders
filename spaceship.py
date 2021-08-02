@@ -1,4 +1,4 @@
-from gameobject import GameObject
+from game_object import GameObject
 
 class Spaceship(GameObject):
     def move(self):

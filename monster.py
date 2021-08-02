@@ -1,4 +1,4 @@
-from gameobject import GameObject
+from game_object import GameObject
 
 class Monster(GameObject):
     def move(self):
