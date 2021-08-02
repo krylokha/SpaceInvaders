@@ -1,4 +1,5 @@
 from game_controller import GameController
+import pygame
 
 class Game:
     def run(self):
