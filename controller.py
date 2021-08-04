@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 
 class Controller(ABC):
     @abstractmethod
-    def handle_event(self):
+    def handle_input(self):
         pass
 
     @abstractmethod
