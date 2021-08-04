@@ -1,7 +1,6 @@
 from controller import Controller
 from game import Game
 from game_object import GameObject
-from 
 
 class Screen:
     game: Game
@@ -14,7 +13,7 @@ class Screen:
 
     def handle_input(self):
         for controller in self.controllers:
-            controller.handle_event()
+            controller.handle_input()
 
     def spawn(self):
         pass
