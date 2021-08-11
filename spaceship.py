@@ -13,11 +13,12 @@ class Spaceship(GameObject):
         self.speed = 0.5
 
     def move(self, x: int, y: int):
-        if pygame.KEYDOWN == pygame.K_d:
-            self.x_direction = 1
-        elif pygame.KEYDOWN == pygame.K_a:
-            self.x_direction = -1
-        self.x += self.x_direction * self.speed 
+        # всё (кнопки) это в контроллере прописываем
+        # if pygame.KEYDOWN == pygame.K_d:
+        #     self.x_direction = 1
+        # elif pygame.KEYDOWN == pygame.K_a:
+        #     self.x_direction = -1
+        self.x += self.x_direction * self.speed * delta_time
 
     def render(self, surface):
         pygame.draw.rect(surface, self.color, self.x, self.y, self.height, self.width, self.border)
