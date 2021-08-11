@@ -13,20 +13,34 @@ class Game:
 
         self.window = pygame.display.set_mode((Game.SCREEN_WIDTH, Game.SCREEN_HEIGHT))
         self.is_running = False
+        self.previous_time = 0
 
     def run(self):
-        pass
+        self.is_running = True
+        while self.is_running:
+            self.handle_event()
+            self.process()
+            self.render()
 
-    def change_screen(self):
-        pass
+    def change_screen(self, screen: Screen):
+        self.screen = screen
 
     def stop(self):
-        pass
+        self.is_running = False
 
-    def handle_events(self):
-        pass
+    def handle_event(self):
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                self.stop()
+            else:
+                self.screen.handle_input(event)
 
     def process(self):
+        current_time = pygame.time.get_ticks()
+        delta_time = current_time - self.previous_time
+        self.previous_time = current_time
+    
+    def render(self):
         pass
 
 if __name__ == "__main__":

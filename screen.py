@@ -7,6 +7,11 @@ class Screen:
     game_objects: list[GameObject]
     controllers: list[Controller]
 
+    def __init__(self, game: Game):
+        self.objects = []
+        self.controllers = []
+        self.game = game
+
     def render(self):
         for game_object in self.game_objects:
             game_object.render()
@@ -15,5 +20,9 @@ class Screen:
         for controller in self.controllers:
             controller.handle_input()
 
-    def spawn(self):
+    def spawn(self, game_object: GameObject, controller: Controller):
+        self.game_objects.append(game_object)
+        self.controllers.append(controller)
+
+    def process(self):
         pass
