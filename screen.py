@@ -8,7 +8,7 @@ class Screen:
     controllers: list[Controller]
 
     def __init__(self, game: Game):
-        self.objects = []
+        self.game_objects = []
         self.controllers = []
         self.game = game
 
@@ -24,5 +24,5 @@ class Screen:
         self.game_objects.append(game_object)
         self.controllers.append(controller)
 
-    def process(self):
+    def process(self, delta_time: int):
         pass

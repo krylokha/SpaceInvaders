@@ -35,10 +35,12 @@ class Game:
             else:
                 self.screen.handle_input(event)
 
-    def process(self):
+    def process(self) -> int:
         current_time = pygame.time.get_ticks()
         delta_time = current_time - self.previous_time
         self.previous_time = current_time
+        self.screen.process(delta_time)
+        return delta_time
     
     def render(self):
         pass
