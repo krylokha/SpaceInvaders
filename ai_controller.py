@@ -23,19 +23,17 @@ class AIController(Controller):
             self.monsters.append(new_monster)
             self.screen.spawn(new_monster)
 
-    def handle_input(self):
+    def handle_input(self, event):
         pass
 
     def process(self, delta_time):
         for monster in self.monsters:
-            if monster.x + monster.RADIUS >= self.EDGE_X:
+            if monster.get_x() + monster.RADIUS >= self.EDGE_X:
                 monster.x_direction = -1
-                monster.move(monster.x, monster.y + self.DELTA)
-            elif monster.x - monster.RADIUS <= self.START_X:
+                monster.move(monster.get_x(), monster.get_y() + self.DELTA)
+            elif monster.get_x() - monster.RADIUS <= self.START_X:
                 monster.x_direction = 1
-                monster.move(monster.x, monster.y + self.DELTA)
+                monster.move(monster.get_x(), monster.get_y() + self.DELTA)
             else:
-                monster.move(monster.x + (monster.x_direction * monster.speed), monster.y)
+                monster.move(monster.get_x() + (monster.x_direction * monster.speed * delta_time), monster.get_y())
 
-    def die(self):
-        pass

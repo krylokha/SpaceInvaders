@@ -17,15 +17,16 @@ class Bullet(GameObject):
         self.y = y
 
     def render(self, window):
-        pygame.draw.rect(window, self.COLOR, (self.x - 0.5 * self.WIDTH, self.y - 0.5 * self.HEIGHT, self.x + 0.5 * self.WIDTH, self.y + 0.5 * self.HEIGHT))
+        pygame.draw.rect(window, self.COLOR, (
+            self.x - 0.5 * self.WIDTH, self.y - 0.5 * self.HEIGHT, self.x + 0.5 * self.WIDTH,
+            self.y + 0.5 * self.HEIGHT))
 
     def move(self, x, y):
         self.x = x
         self.y = y
-        #self.y += -1 * self.speed * delta_time
 
-    def die(self):
-        if self.is_died:
-            return True
-        else:
-            return False
+    def get_x(self):
+        pass
+
+    def get_y(self):
+        pass

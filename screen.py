@@ -13,19 +13,19 @@ class Screen:
         self.controllers = []
         self.game = game
 
-    def render(self):
+    def render(self, window):
         for game_object in self.game_objects:
-            game_object.render()
+            game_object.render(window)
 
-    def handle_input(self):
+    def handle_input(self, event):
         for controller in self.controllers:
-            controller.handle_input()
+            controller.handle_input(event)
 
     def spawn(self, game_object: GameObject):
         self.game_objects.append(game_object)
 
     def remove(self, game_object: GameObject):
-        pass
+        self.game_objects.remove(game_object)
 
     def process(self, delta_time: int):
         for controller in self.controllers:

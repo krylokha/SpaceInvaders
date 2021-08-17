@@ -1,6 +1,5 @@
 import pygame
 from game_object import GameObject
-from bullet import Bullet
 
 
 class Monster(GameObject):
@@ -11,7 +10,7 @@ class Monster(GameObject):
     RADIUS = 10
     speed = 0.5
 
-    def __init__(self, x: int, y: int) -> None:
+    def __init__(self, x, y) -> None:
         self.x = x
         self.y = y
         self.x_direction = 1
@@ -20,12 +19,11 @@ class Monster(GameObject):
         self.x = x
         self.y = y
 
-    def die(self, bullet: Bullet):
-        if bullet.x == self.x and bullet.y == self.y:
-            bullet.is_died = True
-            return True
-        else:
-            return False
-
     def render(self, window):
         pygame.draw.circle(window, self.COLOR, (self.x, self.y), self.RADIUS)
+
+    def get_x(self):
+        return self.x
+
+    def get_y(self):
+        return self.y
