@@ -40,7 +40,6 @@ class Game:
         delta_time = current_time - self.previous_time
         self.previous_time = current_time
         self.screen.process(delta_time)
-        return delta_time
     
     def render(self):
         pass

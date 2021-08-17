@@ -2,6 +2,7 @@ from controller import Controller
 from game import Game
 from game_object import GameObject
 
+
 class Screen:
     game: Game
     game_objects: list[GameObject]
@@ -20,9 +21,12 @@ class Screen:
         for controller in self.controllers:
             controller.handle_input()
 
-    def spawn(self, game_object: GameObject, controller: Controller):
+    def spawn(self, game_object: GameObject):
         self.game_objects.append(game_object)
-        self.controllers.append(controller)
+
+    def remove(self, game_object: GameObject):
+        pass
 
     def process(self, delta_time: int):
-        pass
+        for controller in self.controllers:
+            controller.process(delta_time)

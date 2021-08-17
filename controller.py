@@ -6,5 +6,5 @@ class Controller(ABC):
         pass
 
     @abstractmethod
-    def process(self):
+    def process(self, delta_time):
         pass
