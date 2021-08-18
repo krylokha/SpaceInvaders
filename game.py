@@ -43,7 +43,12 @@ class Game:
         return delta_time
     
     def render(self):
-        pass
+        # пробегаемся по скринам и вызываем render
+        # # self.window.fill((0, 0, 255))
+
+        # self.screen.render(self.window)
+
+        # pygame.display.flip()
 
 if __name__ == "__main__":
     game = Game()

@@ -9,20 +9,23 @@ class Screen:
 
     def __init__(self, game: Game):
         self.game_objects = []
-        self.controllers = []
+        # self.controllers = [пишем вручную контроллеры (3 шт)]
         self.game = game
 
     def render(self):
         for game_object in self.game_objects:
             game_object.render()
 
-    def handle_input(self):
+    def handle_input(self): 
+        # принять и передать event
         for controller in self.controllers:
             controller.handle_input()
 
-    def spawn(self, game_object: GameObject, controller: Controller):
+    def spawn(self, game_object: GameObject):
         self.game_objects.append(game_object)
-        self.controllers.append(controller)
+
+    def banish(self):
+        pass
 
     def process(self, delta_time: int):
-        pass
+        # у контроллеров вызываем process
