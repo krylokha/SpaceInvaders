@@ -26,5 +26,5 @@ class PlayerController(Controller):
             direction = self.spaceship.move_right()
         elif self.handle_input(event) == 2:
             direction = self.spaceship.move_left()
-        self.spaceship.x += direction * self.spaceship.speed * delta_time 
-        """Или self.spaceship.get_x(), запуталась, уточни (нужен может вообще set_x()?"""
+        self.spaceship.move(self.spaceship.get_x() + direction * self.spaceship.get_speed() * delta_time,
+                            self.spaceship.get_y())

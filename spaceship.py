@@ -23,6 +23,9 @@ class Spaceship(GameObject):
     def get_y(self):
         return self.y
 
+    def get_speed(self):
+        return self.speed
+
     def move_right(self):
         self.x_direction = 1
         return self.x_direction
