@@ -15,8 +15,6 @@ class Spaceship(GameObject):
         self.speed = 0.5
 
     def move(self, x: int, y: int):
-        # player_controller - экземпляр
-        # self.x = PlayerController.process(Game.process()) убери вообще
         self.x = x
 
     def get_x(self):

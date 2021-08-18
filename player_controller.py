@@ -3,6 +3,7 @@ from screen import Screen
 from spaceship import Spaceship
 import pygame
 
+
 class PlayerController(Controller):
     spaceship: Spaceship
 
@@ -25,4 +26,5 @@ class PlayerController(Controller):
             direction = self.spaceship.move_right()
         elif self.handle_input(event) == 2:
             direction = self.spaceship.move_left()
-        self.spaceship.x += direction * self.spaceship.speed * delta_time """Или self.spaceship.get_x(), запуталась, спроси"""
+        self.spaceship.x += direction * self.spaceship.speed * delta_time 
+        """Или self.spaceship.get_x(), запуталась, уточни (нужен может вообще set_x()?"""

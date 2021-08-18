@@ -1,6 +1,6 @@
-from player_controller import PlayerController
 import pygame
 from screen import Screen
+
 
 class Game:
     SCREEN_WIDTH = 800
@@ -35,21 +35,17 @@ class Game:
             else:
                 self.screen.handle_input(event)
 
-    def process(self) -> int:
+    def process(self):
         current_time = pygame.time.get_ticks()
         delta_time = current_time - self.previous_time
         self.previous_time = current_time
         self.screen.process(delta_time)
-        return delta_time
-    
+
     def render(self):
-        # пробегаемся по скринам и вызываем render
-        # # self.window.fill((0, 0, 255))
+        """А как же флип и филл?"""
+        self.screen.render(self.window)
 
-        # self.screen.render(self.window)
-
-        # pygame.display.flip()
 
 if __name__ == "__main__":
     game = Game()
-    game.run()    
+    game.run()

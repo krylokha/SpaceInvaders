@@ -2,9 +2,9 @@ from abc import ABC, abstractmethod
 
 class Controller(ABC):
     @abstractmethod
-    def handle_input(self):
+    def handle_input(self, event):
         pass
 
     @abstractmethod
-    def process(self):
+    def process(self, delta_time):
         pass
