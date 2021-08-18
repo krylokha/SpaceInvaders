@@ -4,7 +4,7 @@ from game_object import GameObject
 
 class Monster(GameObject):
     R = 0
-    G = 0
+    G = 255
     B = 0
     COLOR = (R, G, B)
     RADIUS = 10
@@ -20,10 +20,11 @@ class Monster(GameObject):
         self.y = y
 
     def render(self, window):
-        pygame.draw.circle(window, self.COLOR, (self.x, self.y), self.RADIUS)
+        pygame.draw.circle(window, self.COLOR, (self.x, self.y), self.RADIUS)  # лучше сделать прямоугольниками
 
     def get_x(self):
         return self.x
 
     def get_y(self):
         return self.y
+# добавить метод, возвращающий прямоугольник (для определения пересечения с пулей)

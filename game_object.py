@@ -18,3 +18,5 @@ class GameObject(Protocol):
     @abstractmethod
     def get_y(self):
         pass
+
+    # добавить метод, проверяющий пересечение прямоугольников (можно найти метод в pygame для этого) !!!

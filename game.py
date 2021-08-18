@@ -5,6 +5,7 @@ from screen import Screen
 class Game:
     SCREEN_WIDTH = 800
     SCREEN_HEIGHT = 800
+    Color = (0, 0, 0)
 
     screen: Screen
 
@@ -42,8 +43,9 @@ class Game:
         self.screen.process(delta_time)
 
     def render(self):
-        """А как же флип и филл?"""
+        self.window.fill(Game.Color)
         self.screen.render(self.window)
+        pygame.display.flip()
 
 
 if __name__ == "__main__":

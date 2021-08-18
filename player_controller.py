@@ -12,7 +12,7 @@ class PlayerController(Controller):
         self.screen = screen
         """Уточни, верно ли поняла"""
         self.screen.spawn(self.spaceship)
-    
+
     def handle_input(self, event: "Pygame event"):
         if event.type == pygame.KEYDOWN:
             if pygame.KEYDOWN == (pygame.K_RIGHT or pygame.K_d):
@@ -21,8 +21,8 @@ class PlayerController(Controller):
                 return 2
         return 0
 
-    def process(self, delta_time: int, event):
-        if self.handle_input(event) == 1:
+    def process(self, delta_time: int):
+        if self.handle_input(event) == 1:  # убрать handle_input из process!!! он вызывается из screen
             direction = self.spaceship.move_right()
         elif self.handle_input(event) == 2:
             direction = self.spaceship.move_left()

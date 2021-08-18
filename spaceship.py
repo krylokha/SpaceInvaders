@@ -1,13 +1,14 @@
 from game_object import GameObject
 import pygame
 
+
 class Spaceship(GameObject):
     # дополнительный метод, который (... пропуск)
     COLOR = (255, 255, 255)
     BORDER = 0
     HEIGHT = 20
-    WIDTH =20
-    
+    WIDTH = 20
+
     def __init__(self) -> None:
         self.x = 400
         self.y = 550
@@ -19,7 +20,7 @@ class Spaceship(GameObject):
 
     def get_x(self):
         return self.x
-    
+
     def get_y(self):
         return self.y
 
@@ -35,4 +36,5 @@ class Spaceship(GameObject):
         return self.x_direction
 
     def render(self, surface):
-        pygame.draw.rect(surface, self.COLOR, self.x, self.y, self.HEIGHT, self.WIDTH, self.BORDER)
+        pygame.draw.rect(surface, self.COLOR, self.x, self.y, self.HEIGHT, self.WIDTH,
+                         self.BORDER)  # должен передаваться Rect

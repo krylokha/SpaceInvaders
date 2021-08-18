@@ -13,7 +13,7 @@ class Screen:
 
     def __init__(self, game: Game):
         self.game_objects = []
-        self.controllers = [AIController(), PlayerController(), BulletController()]
+        self.controllers = [AIController(self), PlayerController(self), BulletController(self)]
         self.game = game
 
     def render(self, window):

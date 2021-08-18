@@ -6,7 +6,7 @@ class Bullet(GameObject):
     speed = 0.7
     R = 0
     G = 0
-    B = 0
+    B = 255
     COLOR = (R, G, B)
     HEIGHT = 7
     WIDTH = 5
@@ -17,7 +17,7 @@ class Bullet(GameObject):
         self.y = y
 
     def render(self, window):
-        pygame.draw.rect(window, self.COLOR, (
+        pygame.draw.rect(window, self.COLOR, pygame.Rect(
             self.x - 0.5 * self.WIDTH, self.y - 0.5 * self.HEIGHT, self.x + 0.5 * self.WIDTH,
             self.y + 0.5 * self.HEIGHT))
 
