@@ -14,6 +14,7 @@ class Screen:
     def __init__(self, game: Game):
         self.game_objects = []
         self.controllers = [AIController(), PlayerController(), BulletController()]
+        # контроллеры сделать полями
         self.game = game
 
     def render(self, window):

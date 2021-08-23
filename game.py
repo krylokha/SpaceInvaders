@@ -28,7 +28,7 @@ class Game:
     def stop(self):
         self.is_running = False
 
-    def handle_event(self):
+    def handle_event(self, event: "Pygame event"):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.stop()
