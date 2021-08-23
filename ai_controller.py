@@ -11,8 +11,9 @@ class AIController(Controller):
     DELTA = 50  # на сколько увеличивается координата у при переходе монстра на другой ряд
     MONSTERS_NUM = 30
 
-    def __init__(self, monsters: list, screen: Screen):
-        self.monsters = monsters
+    def __init__(self, screen: Screen):
+        self.monsters = []
+        self.create_monsters()
         self.screen = screen
 
     def create_monsters(self):

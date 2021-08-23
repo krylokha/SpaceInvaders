@@ -11,7 +11,7 @@ class PlayerController(Controller):
         self.spaceship = Spaceship()
         self.screen = screen
         self.screen.spawn(self.spaceship)
-    
+
     def handle_input(self, event: "Pygame event"):
         if event.type == pygame.KEYDOWN:
             if pygame.KEYDOWN == (pygame.K_RIGHT or pygame.K_d):

@@ -1,11 +1,12 @@
 from game_object import GameObject
 import pygame
 
+
 class Spaceship(GameObject):
     COLOR = (255, 255, 255)
     HEIGHT = 20
-    WIDTH =20
-    
+    WIDTH = 20
+
     def __init__(self) -> None:
         self.x = 400
         self.y = 550
@@ -17,7 +18,7 @@ class Spaceship(GameObject):
 
     def get_x(self):
         return self.x
-    
+
     def get_y(self):
         return self.y
 
