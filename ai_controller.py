@@ -15,8 +15,8 @@ class AIController(Controller):
 
     def __init__(self, screen: sc.Screen):
         self.monsters = []
-        self.create_monsters()
         self.screen = screen
+        self.create_monsters()
 
     def create_monsters(self):
         x = 0
@@ -31,10 +31,10 @@ class AIController(Controller):
 
     def process(self, delta_time):
         for monster in self.monsters:
-            if monster.get_x() + monster.RADIUS >= self.EDGE_X:
+            if monster.get_x() + monster.WIDTH >= self.EDGE_X:
                 monster.x_direction = -1
                 monster.move(monster.get_x(), monster.get_y() + self.DELTA)
-            elif monster.get_x() - monster.RADIUS <= self.START_X:
+            elif monster.get_x() <= self.START_X:
                 monster.x_direction = 1
                 monster.move(monster.get_x(), monster.get_y() + self.DELTA)
             else:

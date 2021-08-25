@@ -39,7 +39,7 @@ class Spaceship(GameObject):
     def move_left(self):
         self.x_direction = -1
 
-    def fire_the_bullet(self):
+    def fire(self):
         self.bullet_appeared = True
 
     def render(self, surface):
