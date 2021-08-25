@@ -30,6 +30,7 @@ class Screen:
 
     def banish(self, game_object: GameObject):
         self.game_objects.remove(game_object)
+        self.controllers[0].banish(game_object)
 
     def process(self, delta_time: int):
         for controller in self.controllers:

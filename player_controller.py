@@ -3,6 +3,7 @@ from controller import Controller
 import screen as sc
 from spaceship import Spaceship
 import pygame
+from game_object import GameObject
 
 
 class PlayerController(Controller):
@@ -25,3 +26,4 @@ class PlayerController(Controller):
     def process(self, delta_time: int):
         self.spaceship.move(self.spaceship.get_x() + self.spaceship.get_direction() * self.spaceship.get_speed() * delta_time,
                             self.spaceship.get_y())
+
