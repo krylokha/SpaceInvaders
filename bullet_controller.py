@@ -1,10 +1,11 @@
+from __future__ import annotations
 from controller import Controller
-from screen import Screen
+import screen as sc
 from bullet import Bullet
 
 
 class BulletController(Controller):
-    def __init__(self, screen: Screen):
+    def __init__(self, screen: sc.Screen):
         self.bullets = []
         self.screen = screen
 
@@ -12,7 +13,7 @@ class BulletController(Controller):
         bullet = Bullet(x, y)
         self.bullets.append(bullet)
 
-    def handle_input(self, event):
+    def handle_input(self, event: "Python event"):
         pass
 
     def process(self, delta_time):

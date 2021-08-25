@@ -1,6 +1,7 @@
+from __future__ import annotations
 import pygame
 from controller import Controller
-from screen import Screen
+import screen as sc
 from monster import Monster
 
 
@@ -11,7 +12,7 @@ class AIController(Controller):
     DELTA = 50  # на сколько увеличивается координата у при переходе монстра на другой ряд
     MONSTERS_NUM = 30
 
-    def __init__(self, screen: Screen):
+    def __init__(self, screen: sc.Screen):
         self.monsters = []
         self.create_monsters()
         self.screen = screen
@@ -24,7 +25,7 @@ class AIController(Controller):
             self.monsters.append(new_monster)
             self.screen.spawn(new_monster)
 
-    def handle_input(self, event):
+    def handle_input(self, event: "Python event"):
         pass
 
     def process(self, delta_time):

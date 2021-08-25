@@ -1,3 +1,4 @@
+from __future__ import annotations
 from game_object import GameObject
 import pygame
 
@@ -12,6 +13,7 @@ class Spaceship(GameObject):
         self.y = 550
         self.x_direction = 0
         self.speed = 0.5
+        self.bullet_appeared = False
 
     def move(self, x: int, y: int):
         self.x = x
@@ -36,6 +38,9 @@ class Spaceship(GameObject):
 
     def move_left(self):
         self.x_direction = -1
+
+    def fire_the_bullet(self):
+        self.bullet_appeared = True
 
     def render(self, surface):
         pygame.draw.rect(surface, Spaceship.COLOR, pygame.Rect(self.x, self.y, Spaceship.HEIGHT, Spaceship.WIDTH))

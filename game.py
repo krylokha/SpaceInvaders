@@ -1,5 +1,6 @@
+from __future__ import annotations
 import pygame
-from screen import Screen
+import screen as sc
 
 
 class Game:
@@ -7,7 +8,7 @@ class Game:
     SCREEN_HEIGHT = 800
     Color = (0, 0, 0)
 
-    screen: Screen
+    screen: sc.Screen
 
     def __init__(self):
         pygame.init()
@@ -15,6 +16,7 @@ class Game:
         self.window = pygame.display.set_mode((Game.SCREEN_WIDTH, Game.SCREEN_HEIGHT))
         self.is_running = False
         self.previous_time = 0
+        self.screen = sc.Screen(self)
 
     def run(self):
         self.is_running = True
@@ -23,13 +25,13 @@ class Game:
             self.process()
             self.render()
 
-    def change_screen(self, screen: Screen):
+    def change_screen(self, screen: sc.Screen):
         self.screen = screen
 
     def stop(self):
         self.is_running = False
 
-    def handle_event(self, event: "Pygame event"):
+    def handle_event(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.stop()

@@ -1,3 +1,4 @@
+from __future__ import annotations
 from controller import Controller
 from ai_controller import AIController
 from player_controller import PlayerController
