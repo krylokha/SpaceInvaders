@@ -16,11 +16,11 @@ class PlayerController(Controller):
 
     def handle_input(self, event: "Pygame event"):
         if event.type == pygame.KEYDOWN:
-            if pygame.KEYDOWN == (pygame.K_RIGHT or pygame.K_d):
+            if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
                 self.spaceship.move_right()
-            elif pygame.KEYDOWN == (pygame.K_LEFT or pygame.K_a):
+            elif event.key == pygame.K_LEFT or event.key == pygame.K_a:
                 self.spaceship.move_left()
-            elif pygame.KEYDOWN == pygame.K_SPACE:
+            elif event.key == pygame.K_SPACE:
                 self.spaceship.fire()
 
     def process(self, delta_time: int):
