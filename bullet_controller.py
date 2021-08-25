@@ -1,6 +1,7 @@
 from controller import Controller
 from screen import Screen
 from bullet import Bullet
+from game_object import GameObject
 
 
 class BulletController(Controller):
@@ -19,8 +20,12 @@ class BulletController(Controller):
         for bullet in self.bullets:
             bullet.move(bullet.x, bullet.y + (-1 * bullet.speed * delta_time))
             for game_obj in self.screen.game_objects:
-                if game_obj.get_x() == bullet.x and game_obj.get_y() == bullet.y and game_obj is not bullet: # см класс game_object
-                    self.screen.banish(bullet) # добавить в banish удаление из контроллера
-                    self.bullets.remove(bullet)
+                # if game_obj.get_x() == bullet.x and game_obj.get_y() == bullet.y and game_obj is not bullet: # см класс game_object
+                if game_obj is not bullet and bullet.check_crossing(game_obj):
+                    self.screen.banish(bullet)  # добавить в banish удаление из контроллера
+                    # self.bullets.remove(bullet)
                     self.screen.banish(game_obj)
 
+    # def banish(self, game_object: GameObject):
+    #     if game_object in self.bullets:
+    #         self.bullets.remove(game_object)

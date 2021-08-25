@@ -17,9 +17,7 @@ class Bullet(GameObject):
         self.y = y
 
     def render(self, window):
-        pygame.draw.rect(window, self.COLOR, pygame.Rect(
-            self.x - 0.5 * self.WIDTH, self.y - 0.5 * self.HEIGHT, self.x + 0.5 * self.WIDTH,
-            self.y + 0.5 * self.HEIGHT))
+        pygame.draw.rect(window, self.COLOR, self.get_rect())
 
     def move(self, x, y):
         self.x = x
@@ -30,3 +28,8 @@ class Bullet(GameObject):
 
     def get_y(self):
         pass
+
+    def get_rect(self):
+        return pygame.Rect(
+            self.x - 0.5 * self.WIDTH, self.y - 0.5 * self.HEIGHT, self.x + 0.5 * self.WIDTH,
+            self.y + 0.5 * self.HEIGHT)
