@@ -21,7 +21,7 @@ class PlayerController(Controller):
             elif event.key == pygame.K_LEFT or event.key == pygame.K_a:
                 self.spaceship.move_left()
             elif event.key == pygame.K_SPACE:
-                self.spaceship.fire()
+                self.spaceship.fire(self.screen)
 
     def process(self, delta_time: int):
         self.spaceship.move(self.spaceship.get_x() + self.spaceship.get_direction() * self.spaceship.get_speed() * delta_time,
