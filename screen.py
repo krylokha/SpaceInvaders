@@ -33,7 +33,8 @@ class Screen:
         self.controllers[2].bullets.append(bullet)
 
     def banish(self, game_object: GameObject):
-        self.game_objects.remove(game_object)
+        if game_object in self.game_objects:
+            self.game_objects.remove(game_object)
         if game_object in self.controllers[0].monsters:
             self.controllers[0].banish(game_object)
 
