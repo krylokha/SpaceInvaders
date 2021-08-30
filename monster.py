@@ -9,7 +9,7 @@ class Monster(GameObject):
     B = 0
     COLOR = (R, G, B)
     # RADIUS = 10
-    speed = 0.5
+    speed = 0.1
     WIDTH = 15
     HEIGHT = 15
 

@@ -9,8 +9,8 @@ class Bullet(GameObject):
     G = 0
     B = 255
     COLOR = (R, G, B)
-    HEIGHT = 7
-    WIDTH = 5
+    HEIGHT = 8
+    WIDTH = 6
     is_died = False
 
     def __init__(self, x, y):
@@ -32,5 +32,4 @@ class Bullet(GameObject):
 
     def get_rect(self):
         return pygame.Rect(
-            self.x - 0.5 * self.WIDTH, self.y - 0.5 * self.HEIGHT, self.x + 0.5 * self.WIDTH,
-            self.y + 0.5 * self.HEIGHT)
+            self.x - 0.5 * Bullet.WIDTH, self.y - 0.5 * Bullet.HEIGHT, Bullet.WIDTH, Bullet.HEIGHT)

@@ -5,6 +5,7 @@ from player_controller import PlayerController
 from bullet_controller import BulletController
 from game import Game
 from game_object import GameObject
+from bullet import Bullet
 
 
 class Screen:
@@ -28,9 +29,13 @@ class Screen:
     def spawn(self, game_object: GameObject):
         self.game_objects.append(game_object)
 
+    def add_bullet(self, bullet: Bullet):
+        self.controllers[2].bullets.append(bullet)
+
     def banish(self, game_object: GameObject):
         self.game_objects.remove(game_object)
-        self.controllers[0].banish(game_object)
+        if game_object in self.controllers[0].monsters:
+            self.controllers[0].banish(game_object)
 
     def process(self, delta_time: int):
         for controller in self.controllers:

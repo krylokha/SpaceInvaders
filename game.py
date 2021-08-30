@@ -13,7 +13,7 @@ class Game:
     def __init__(self):
         pygame.init()
 
-        self.window = pygame.display.set_mode((Game.SCREEN_WIDTH, Game.SCREEN_HEIGHT))
+        self.window = pygame.display.set_mode((Game.SCREEN_WIDTH, Game.SCREEN_HEIGHT)) 
         self.is_running = False
         self.previous_time = 0
         self.screen = sc.Screen(self)
