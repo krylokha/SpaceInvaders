@@ -9,10 +9,10 @@ class Spaceship(GameObject):
     WIDTH = 20
 
     def __init__(self) -> None:
-        self.x = 400
-        self.y = 550
+        self.x = 390
+        self.y = 740
         self.x_direction = 0
-        self.speed = 0.5
+        self.speed = 0.2
         self.bullet_appeared = False
 
     def move(self, x: int, y: int):
@@ -32,6 +32,9 @@ class Spaceship(GameObject):
 
     def get_direction(self):
         return self.x_direction
+
+    def stop(self):
+        self.x_direction = 0
 
     def move_right(self):
         self.x_direction = 1
