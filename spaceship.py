@@ -45,10 +45,10 @@ class Spaceship(GameObject):
         self.x_direction = -1
 
     def fire(self, game_screen: screen.Screen):
-        bullet = Bullet(self.x, self.y)
+        bullet = Bullet(self.x + 1, self.y - 2)
         game_screen.spawn(bullet)
         game_screen.add_bullet(bullet)
-        # self.bullet_appeared = True
+        self.bullet_appeared = True
 
     def render(self, surface):
         pygame.draw.rect(surface, Spaceship.COLOR, pygame.Rect(self.x, self.y, Spaceship.HEIGHT, Spaceship.WIDTH))
