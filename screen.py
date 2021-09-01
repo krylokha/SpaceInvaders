@@ -1,4 +1,6 @@
 from __future__ import annotations
+from abc_screen import Screen
+from end_screen import EndScreen
 from controller import Controller
 from ai_controller import AIController
 from player_controller import PlayerController
@@ -8,7 +10,7 @@ from game_object import GameObject
 from bullet import Bullet
 
 
-class Screen:
+class MainScreen(Screen):
     game: Game
     game_objects: list[GameObject]
     controllers: list[Controller]
@@ -41,3 +43,5 @@ class Screen:
     def process(self, delta_time: int):
         for controller in self.controllers:
             controller.process(delta_time)
+        if not self.controllers[0].has_monsters():
+            self.game.change_screen(EndScreen(self.game))

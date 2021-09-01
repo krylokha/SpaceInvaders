@@ -1,9 +1,9 @@
 from __future__ import annotations
 from controller import Controller
-import screen as sc
+import screen as mainsc
 from spaceship import Spaceship
+from ai_controller import AIController
 import pygame
-from game_object import GameObject
 
 
 class PlayerController(Controller):
@@ -12,7 +12,7 @@ class PlayerController(Controller):
     START_X = 0
     EDGE_X = 800  
 
-    def __init__(self, screen: sc.Screen) -> None:
+    def __init__(self, screen: mainsc.MainScreen) -> None:
         self.spaceship = Spaceship()
         self.screen = screen
         self.screen.spawn(self.spaceship)
@@ -30,11 +30,14 @@ class PlayerController(Controller):
                 self.spaceship.stop()
 
     def process(self, delta_time: int):
-        if self.spaceship.get_x() + self.spaceship.WIDTH == self.EDGE_X or self.spaceship.get_x() == 0:
-            self.spaceship.move(self.spaceship.get_x() - self.spaceship.get_direction() * self.spaceship.get_speed() * delta_time,
+        for game_object in self.screen.game_objects:
+            if self.spaceship.check_crossing(game_object):
+                pass
+        self.spaceship.move(self.spaceship.get_x() + self.spaceship.get_direction() * self.spaceship.get_speed() * delta_time,
                             self.spaceship.get_y())
-        else:
-            self.spaceship.move(self.spaceship.get_x() + self.spaceship.get_direction() * self.spaceship.get_speed() * delta_time,
-                            self.spaceship.get_y())
-        
-# создаем пулю, спавним, пихаем в массив пуль. буллет_контроллер на то и рассчитан
+
+    def check_edges(self):
+        if self.spaceship.get_x() + self.spaceship.WIDTH == PlayerController.EDGE_X or self.spaceship.get_x() == PlayerController.START_X:
+            self.spaceship.stop()
+            return True
+        return False

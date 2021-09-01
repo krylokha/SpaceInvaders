@@ -1,13 +1,13 @@
 from __future__ import annotations
 from controller import Controller
-import screen as sc
+import screen as mainsc
 from bullet import Bullet
 from spaceship import Spaceship
 from game_object import GameObject
 
 
 class BulletController(Controller):
-    def __init__(self, screen: sc.Screen):
+    def __init__(self, screen: mainsc.MainScreen):
         self.bullets = []
         self.screen = screen
         #self.spaceship = spaceship

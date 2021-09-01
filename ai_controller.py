@@ -58,3 +58,9 @@ class AIController(Controller):
     def banish(self, game_object: GameObject):
         if game_object in self.monsters:
             self.monsters.remove(game_object)
+
+    def get_monsters(self):
+        return self.monsters
+
+    def has_monsters(self):
+        return len(self.monsters) != 0
