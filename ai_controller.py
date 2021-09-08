@@ -55,6 +55,7 @@ class AIController(Controller):
                 monster.move(monster.get_x() + (monster.x_direction * monster.speed * delta_time),
                              monster.get_y() + self.DELTA)
 
+
     def banish(self, game_object: GameObject):
         if game_object in self.monsters:
             self.monsters.remove(game_object)

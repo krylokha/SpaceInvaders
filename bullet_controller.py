@@ -15,6 +15,7 @@ class BulletController(Controller):
     def create_bullet(self, x, y):
         bullet = Bullet(x, y)
         self.bullets.append(bullet)
+        self.screen.game_objects.append(bullet)
 
     def handle_input(self, event: "Python event"):
         pass
@@ -29,6 +30,9 @@ class BulletController(Controller):
                     self.screen.banish(bullet)  # добавить в banish удаление из контроллера
                     # self.bullets.remove(bullet)
                     self.screen.banish(game_obj)
+            if bullet.y < 20:
+                self.screen.banish(bullet)
+                self.bullets.remove(bullet)
 
     # def banish(self, game_object: GameObject):
     #     if game_object in self.bullets:
