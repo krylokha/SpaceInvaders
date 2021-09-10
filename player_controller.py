@@ -19,11 +19,10 @@ class PlayerController(Controller):
 
     def handle_input(self, event: "Pygame event"):
         if event.type == pygame.KEYDOWN:
-            if not self.check_edges():
-                if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
-                        self.spaceship.move_right()
-                elif event.key == pygame.K_LEFT or event.key == pygame.K_a:
-                        self.spaceship.move_left()
+            if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
+                    self.spaceship.move_right()
+            elif event.key == pygame.K_LEFT or event.key == pygame.K_a:
+                    self.spaceship.move_left()
             elif event.key == pygame.K_SPACE:
                 self.spaceship.fire(self.screen)
         if event.type == pygame.KEYUP:
@@ -40,11 +39,7 @@ class PlayerController(Controller):
             self.spaceship.get_y())
 
     def check_edges(self):
-<<<<<<< HEAD
-        return self.spaceship.get_x() + self.spaceship.WIDTH == PlayerController.EDGE_X or self.spaceship.get_x() == PlayerController.START_X
-=======
         if (self.spaceship.get_x() + self.spaceship.WIDTH >= PlayerController.EDGE_X and self.spaceship.x_direction == 1) or (self.spaceship.get_x() <= PlayerController.START_X and self.spaceship.x_direction == -1):
             self.spaceship.stop()
             return True
         return False
->>>>>>> 45d7088cb61c5c1299a907d5a5acad91a9d1eb36
