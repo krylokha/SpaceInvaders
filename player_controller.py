@@ -10,7 +10,7 @@ class PlayerController(Controller):
     spaceship: Spaceship
 
     START_X = 0
-    EDGE_X = 800  
+    EDGE_X = 800
 
     def __init__(self, screen: mainsc.MainScreen) -> None:
         self.spaceship = Spaceship()
@@ -33,11 +33,13 @@ class PlayerController(Controller):
         for game_object in self.screen.game_objects:
             if self.spaceship.check_crossing(game_object):
                 pass
-        self.spaceship.move(self.spaceship.get_x() + self.spaceship.get_direction() * self.spaceship.get_speed() * delta_time,
-                            self.spaceship.get_y())
+        self.check_edges()
+        self.spaceship.move(
+            self.spaceship.get_x() + self.spaceship.get_direction() * self.spaceship.get_speed() * delta_time,
+            self.spaceship.get_y())
 
     def check_edges(self):
-        if self.spaceship.get_x() + self.spaceship.WIDTH == PlayerController.EDGE_X or self.spaceship.get_x() == PlayerController.START_X:
+        if (self.spaceship.get_x() + self.spaceship.WIDTH >= PlayerController.EDGE_X and self.spaceship.x_direction == 1) or (self.spaceship.get_x() <= PlayerController.START_X and self.spaceship.x_direction == -1):
             self.spaceship.stop()
             return True
         return False
