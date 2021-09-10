@@ -31,7 +31,7 @@ class MainScreen(Screen):
             controller.handle_input(event)
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE:
-                self.game.stop()
+                self.stop_game()
 
     def spawn(self, game_object: GameObject):
         self.game_objects.append(game_object)

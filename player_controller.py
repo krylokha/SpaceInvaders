@@ -31,8 +31,9 @@ class PlayerController(Controller):
 
     def process(self, delta_time: int):
         for game_object in self.screen.game_objects:
-            if self.spaceship.check_crossing(game_object):
-                pass
+            if game_object is not self.spaceship and self.spaceship.check_crossing(game_object):
+                self.screen.banish(self.spaceship)
+                self.screen.stop_game()
         self.check_edges()
         self.spaceship.move(
             self.spaceship.get_x() + self.spaceship.get_direction() * self.spaceship.get_speed() * delta_time,

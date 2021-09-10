@@ -16,7 +16,7 @@ class EndScreen(Screen):
     def handle_input(self, event: "Pygame event"):
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE:
-                self.game.stop()
+                self.stop_game()
 
     def render(self, surface):
         surface.blit(self.textSurfaceObj, (300, 400))
