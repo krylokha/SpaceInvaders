@@ -1,4 +1,6 @@
 from __future__ import annotations
+
+import pygame
 from abc_screen import Screen
 from end_screen import EndScreen
 from controller import Controller
@@ -27,6 +29,9 @@ class MainScreen(Screen):
     def handle_input(self, event):
         for controller in self.controllers:
             controller.handle_input(event)
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_ESCAPE:
+                self.game.stop()
 
     def spawn(self, game_object: GameObject):
         self.game_objects.append(game_object)

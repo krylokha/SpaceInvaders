@@ -7,7 +7,7 @@ import screen
 
 
 class Spaceship(GameObject):
-    COLOR = (255, 255, 255)
+    COLOR = (200, 128, 0)
     HEIGHT = 20
     WIDTH = 20
 

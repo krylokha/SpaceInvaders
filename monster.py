@@ -5,8 +5,8 @@ from game_object import GameObject
 
 class Monster(GameObject):
     R = 0
-    G = 255
-    B = 0
+    G = 128
+    B = 128
     COLOR = (R, G, B)
     # RADIUS = 10
     speed = 0.1
