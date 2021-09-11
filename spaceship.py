@@ -44,7 +44,7 @@ class Spaceship(GameObject):
     def move_left(self):
         self.x_direction = -1
 
-    def fire(self, game_screen: screen.Screen):
+    def fire(self, game_screen: screen.MainScreen):
         bullet = Bullet(self.x + 1, self.y - 2)
         game_screen.spawn(bullet)
         game_screen.add_bullet(bullet)

@@ -1,4 +1,5 @@
 from __future__ import annotations
+from bullet import Bullet
 from controller import Controller
 import screen as mainsc
 from spaceship import Spaceship
@@ -31,7 +32,7 @@ class PlayerController(Controller):
 
     def process(self, delta_time: int):
         for game_object in self.screen.game_objects:
-            if game_object is not self.spaceship and self.spaceship.check_crossing(game_object):
+            if game_object is not self.spaceship and self.spaceship.check_crossing(game_object) and not isinstance(game_object, Bullet):
                 self.screen.banish(self.spaceship)
                 self.screen.stop_game()
         self.check_edges()
