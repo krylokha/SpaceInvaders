@@ -1,4 +1,5 @@
 from __future__ import annotations
+from end_screen import EndScreen
 from bullet import Bullet
 from controller import Controller
 import screen as mainsc
@@ -35,6 +36,7 @@ class PlayerController(Controller):
             if game_object is not self.spaceship and self.spaceship.check_crossing(game_object) and not isinstance(game_object, Bullet):
                 self.screen.banish(self.spaceship)
                 self.screen.stop_game()
+                self.screen.change_screen(EndScreen(self.game))
         self.check_edges()
         self.spaceship.move(
             self.spaceship.get_x() + self.spaceship.get_direction() * self.spaceship.get_speed() * delta_time,

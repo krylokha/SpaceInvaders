@@ -14,3 +14,6 @@ class Screen(ABC):
 
     def stop_game(self):
         self.game.stop()
+
+    def change_screen(self, screen):
+        self.game.change_screen(screen)

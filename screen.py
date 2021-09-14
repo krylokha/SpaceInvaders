@@ -49,4 +49,4 @@ class MainScreen(Screen):
         for controller in self.controllers:
             controller.process(delta_time)
         if not self.controllers[0].has_monsters():
-            self.game.change_screen(EndScreen(self.game))
+            self.change_screen(EndScreen(self.game))

@@ -17,7 +17,7 @@ class StartScreen(Screen):
     def handle_input(self, event: "Pygame event"):
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_RETURN:
-                self.game.change_screen(mainsc.MainScreen(self.game))
+                self.change_screen(mainsc.MainScreen(self.game))
 
     def render(self, surface):
         surface.blit(self.textSurfaceObj1, (200, 360))
