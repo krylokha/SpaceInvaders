@@ -4,6 +4,7 @@ from game_object import GameObject
 import pygame
 from bullet import Bullet
 import screen
+import time
 
 
 class Spaceship(GameObject):
@@ -16,6 +17,7 @@ class Spaceship(GameObject):
         self.y = 740
         self.x_direction = 0
         self.speed = 0.2
+        self.time = time.time() - 1
 
     def move(self, x: int, y: int):
         self.x = x
@@ -45,9 +47,11 @@ class Spaceship(GameObject):
         self.x_direction = -1
 
     def fire(self, game_screen: screen.MainScreen):
-        bullet = Bullet(self.x + 1, self.y - 2)
-        game_screen.spawn(bullet)
-        game_screen.add_bullet(bullet)
+        if time.time() - self.time >= 1:
+            bullet = Bullet(self.x + 1, self.y - 2)
+            game_screen.spawn(bullet)
+            game_screen.add_bullet(bullet)
+            self.time = time.time()
 
     def render(self, surface):
         pygame.draw.rect(surface, Spaceship.COLOR, pygame.Rect(self.x, self.y, Spaceship.HEIGHT, Spaceship.WIDTH))

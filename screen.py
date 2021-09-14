@@ -44,6 +44,8 @@ class MainScreen(Screen):
             self.game_objects.remove(game_object)
         if game_object in self.controllers[0].monsters:
             self.controllers[0].banish(game_object)
+        if game_object in self.controllers[2].bullets:
+            self.controllers[2].banish(game_object)
 
     def process(self, delta_time: int):
         for controller in self.controllers:
