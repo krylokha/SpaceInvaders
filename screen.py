@@ -47,8 +47,11 @@ class MainScreen(Screen):
         if game_object in self.controllers[2].bullets:
             self.controllers[2].banish(game_object)
 
+    def change_screen(self):
+        self.game.change_screen(EndScreen(self.game))
+
     def process(self, delta_time: int):
         for controller in self.controllers:
             controller.process(delta_time)
         if not self.controllers[0].has_monsters():
-            self.change_screen(EndScreen(self.game))
+            self.change_screen()

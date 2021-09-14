@@ -35,8 +35,7 @@ class PlayerController(Controller):
         for game_object in self.screen.game_objects:
             if game_object is not self.spaceship and self.spaceship.check_crossing(game_object) and not isinstance(game_object, Bullet):
                 self.screen.banish(self.spaceship)
-                self.screen.stop_game()
-                self.screen.change_screen(EndScreen(self.game))
+                self.screen.change_screen()
         self.check_edges()
         self.spaceship.move(
             self.spaceship.get_x() + self.spaceship.get_direction() * self.spaceship.get_speed() * delta_time,
