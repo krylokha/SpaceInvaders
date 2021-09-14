@@ -29,11 +29,11 @@ class EndScreen(Screen):
         return textMessage
 
     def render(self, surface):
-        surface.blit(self.textSurfaceObj, (450, 450))
+        surface.blit(self.textSurfaceObj, (310, 450))
         if self.controller.has_monsters():
-            surface.blit(self.win(), (300, 400))
+            surface.blit(self.win(), (305, 350))
         else:
-            surface.blit(self.lose(), (300, 400))
+            surface.blit(self.lose(), (305, 350))
 
     def process(self, delta_time):
         pass
