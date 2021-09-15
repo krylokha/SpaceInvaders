@@ -48,7 +48,7 @@ class MainScreen(Screen):
             self.controllers[2].banish(game_object)
 
     def change_screen(self):
-        self.game.change_screen(EndScreen(self.game))
+        self.game.change_screen(EndScreen(self.game, self.controllers[0]))
 
     def process(self, delta_time: int):
         for controller in self.controllers:

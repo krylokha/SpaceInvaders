@@ -7,9 +7,10 @@ import pygame
 
 class EndScreen(Screen):
     game: Game
+    controller: AIController
 
-    def __init__(self, game: Game):
-        self.controller = AIController(self)
+    def __init__(self, game: Game, controller: AIController):
+        self.controller = controller
         self.game = game
         self.main_text = pygame.font.Font('Bungee-Regular.ttf', 36)
         self.text = pygame.font.Font('Bungee-Regular.ttf', 28)
@@ -30,7 +31,7 @@ class EndScreen(Screen):
 
     def render(self, surface):
         surface.blit(self.textSurfaceObj, (310, 450))
-        if self.controller.has_monsters():
+        if not self.controller.has_monsters():
             surface.blit(self.win(), (305, 350))
         else:
             surface.blit(self.lose(), (305, 350))
@@ -38,5 +39,5 @@ class EndScreen(Screen):
     def process(self, delta_time):
         pass
 
-    def spawn(self, object):
-        pass
+    # def spawn(self, object):
+    #     pass
